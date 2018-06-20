@@ -1,3 +1,19 @@
+diff --git a/Makefile b/Makefile
+index 3922d60..77f351d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -16,6 +16,11 @@ geth:
+ 	@echo "Done building."
+ 	@echo "Run \"$(GOBIN)/geth\" to launch geth."
+ 
++bootnode:
++	build/env.sh go run build/ci.go install ./cmd/bootnode
++	@echo "Done building."
++	@echo "Run \"$(GOBIN)/bootnode\" to launch bootnode."
++
+ swarm:
+ 	build/env.sh go run build/ci.go install ./cmd/swarm
+ 	@echo "Done building."
 diff --git a/accounts/abi/bind/backends/simulated.go b/accounts/abi/bind/backends/simulated.go
 index 2b5c5fc..5362c94 100644
 --- a/accounts/abi/bind/backends/simulated.go
